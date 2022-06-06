@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
     <script>
+        //These are the variables which will hold the player's choice and the computer's choice//
+        let computerChoice = "Rock";
+        let playerChoice = "Rock";
 
         //This function is going to make the computer choose between either "Rock," "Paper," or "Scissors"//
         function computerPlay() {
             let choice = Math.floor(Math.random() * 3);
-            return choice;
+            switch(choice) {
+                case 0:
+                    computerChoice = "Rock";
+                    break;
+                case 1:
+                    computerChoice = "Paper";
+                    break;
+                case 2: 
+                    computerChoice = "Scissors";
+            }
         }
     </script>
 </html>
