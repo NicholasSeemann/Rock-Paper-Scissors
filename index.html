@@ -2,21 +2,18 @@
 <html>
     <script>
         //This function is going to play five rounds and return whoever won the most rounds//
-        function game(playerChoice) {
+        function game() {
+            //This will display a prompt for the user to enter their choice of rock, paper or scissors//
+            let promptAnswer = prompt("To play a game of Rock Paper Scissors, please enter either rock, paper, or scissors in the text box below");
+            console.log(promptAnswer);
+            //These variables keep track of wins, losses, and ties//
             let wins = 0;
             let losses = 0;
             let ties = 0;
             for (let i = 0; i < 5; i++) {
-                switch(playRound(playerChoice, computerPlay)) {
-                    case 0:
-                        ties += 1;
-                        break;
-                    case 1: 
-                        wins += 1;
-                        break;
-                    case 2: 
-                        losses += 1;
-                }
+                let playGame = playRound(promptAnswer, computerPlay);
+                console.log(playGame);
+                
             }
             return "You got " + wins + " wins, " + losses + " losses, and " + ties + " ties.";
         }
