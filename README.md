@@ -1,1 +1,2 @@
 # Rock-Paper-Scissors
+This is a simple Rock Paper Scissors program to use what I've learned so far about Javascript, such as if and switch statements, built in variables, and many other things which you can take a look at for yourself in the code.
