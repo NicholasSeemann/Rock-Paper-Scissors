@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
     <script>
-        
-        
+        //This function is going to play five rounds and return whoever won the most rounds//
+        function game() {
+
+        }
         
         //This function will play a round of Rock Paper Scissors//
         function playRound(playerSelection, computerSelection) {
@@ -10,39 +12,49 @@
             let prLowerCase = playerSelection.toLowerCase();
             let prCapitalised = prLowerCase.charAt(0).toUpperCase() + prLowerCase.slice(1);
 
-            //This variable will tell whether or not the player or the computer won the game//
+            //These variable will tell whether or not the player or the computer won the game. For 'result', "0" means that the game ended in a tie, "1" means that the player won, and "2" means the computer won.//
+            let resultLog;
             let result;
-
             //This series of if-statements gives the results if the computer chooses "Rock"//
             if  (computerSelection == "Rock" && prCapitalised == "Rock") {
-                result = "Both picked rock, it's a tie!";
+                resultLog = "Both picked rock, it's a tie!";
+                result = 0;
             }
             else if (computerSelection == "Rock" && prCapitalised == "Paper") {
-                result = "The computer chose rock and the player chose paper. The player wins!";
+                resultLog = "The computer chose rock and the player chose paper. The player wins!";
+                result = 1;
             }
             else if (computerSelection == "Rock" && prCapitalised == "Scissors") {
-                result = "The computer chose rock and the player chose scissors. The computer wins!";
+                resultLog = "The computer chose rock and the player chose scissors. The computer wins!";
+                result = 2;
             }
-
             //This series of if-statements gives the results if the computer picks "Paper"//
-            if (computerSelection == "Paper" && prCapitalised == "Paper") {
-                result = "Both picked paper, it's a tie!";
+            else if (computerSelection == "Paper" && prCapitalised == "Paper") {
+                resultLog = "Both picked paper, it's a tie!";
+                result = 0;
             }
             else if (computerSelection == "Paper" && prCapitalised == "Rock") {
-                result = "The computer picked paper and the player picked rock. The computer wins!";
+                resultLog = "The computer picked paper and the player picked rock. The computer wins!";
+                result = 2;
             }
             else if (computerSelection == "Paper" && prCapitalised == "Scissors") {
-                result = "The computer picked paper and the player picked scissors. The player wins!";
+                resultLog = "The computer picked paper and the player picked scissors. The player wins!";
+                result = 1;
             }
-
             //This series of if-statements gives the results if the computer picks "Scissors"//
-            if (computerSelection == "Scissors" && prCapitalised == "Scissors") {
-                result = "Both picked scissors. It's a tie!";
+            else if (computerSelection == "Scissors" && prCapitalised == "Scissors") {
+                resultLog = "Both picked scissors. It's a tie!";
+                result = 0;
             }
             else if (computerSelection == "Scissors" && prCapitalised == "Rock") {
-                result = "The computer picked scissors and the player picked rock. The player wins!"
+                resultLog = "The computer picked scissors and the player picked rock. The player wins!"
+                result = 1;
             }
-            
+            else if (computerSelection == "Scissors" && prCapitalised == "Paper") {
+                resultLog = "The computer picked scissors and the player picked paper. The computer wins!"
+                result = 2;
+            }
+            console.log(resultLog);
             return result;
         } 
         
