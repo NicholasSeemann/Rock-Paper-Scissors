@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html>
     <script>
-
-
+        
+        
+        
         //This function will play a round of Rock Paper Scissors//
         function playRound(playerSelection, computerSelection) {
-            //This variable takes playerSelection and makes it so that regardless of capitalisation the user inputs, the end result will always have the first letter capitalised and the rest of the characters lowercase//
-            let pSelectionFixed = 
+            //These variable takes playerSelection and makes it so that regardless of capitalisation the user inputs, the end result will always have the first letter capitalised and the rest of the characters lowercase//
+            let prLowerCase = playerSelection.toLowerCase();
+            let prCapitalised = prLowerCase.charAt(0).toUpperCase() + prLowerCase.slice(1);
+
             //This variable will tell whether or not the player or the computer won the game//
-            let result = "";
+            let result;
 
             //This series of if-statements gives the results if the computer chooses "Rock"//
-            if  (computerSelection == "Rock" && playerSelection == "Rock") {
+            if  (computerSelection == "Rock" && prCapitalised == "Rock") {
                 result = "Both picked rock, it's a tie!";
             }
-            else if (computerSelection == "Rock" && playerSelection == "Paper") {
+            else if (computerSelection == "Rock" && prCapitalised == "Paper") {
                 result = "The computer chose rock and the player chose paper. The player wins!";
             }
-            else if (computerSelection == "Rock" && playerSelection == "Scissors") {
+            else if (computerSelection == "Rock" && prCapitalised == "Scissors") {
                 result = "The computer chose rock and the player chose scissors. The computer wins!";
             }
 
             //This series of if-statements gives the results if the computer picks "Paper"//
-            if (computerSelection == "Paper" && playerSelection == "Paper") {
+            if (computerSelection == "Paper" && prCapitalised == "Paper") {
                 result = "Both picked paper, it's a tie!";
             }
-            else if (computerSelection == "Paper" && playerSelection == "Rock") {
+            else if (computerSelection == "Paper" && prCapitalised == "Rock") {
                 result = "The computer picked paper and the player picked rock. The computer wins!";
             }
-            else if (computerSelection == "Paper" && playerSelection == "Scissors") {
+            else if (computerSelection == "Paper" && prCapitalised == "Scissors") {
                 result = "The computer picked paper and the player picked scissors. The player wins!";
             }
 
             //This series of if-statements gives the results if the computer picks "Scissors"//
-            if (computerSelection == "Scissors" && playerSelection == "Scissors") {
+            if (computerSelection == "Scissors" && prCapitalised == "Scissors") {
                 result = "Both picked scissors. It's a tie!";
             }
-            else if (computerSelection == "Scissors" && playerSelection == "Rock") {
+            else if (computerSelection == "Scissors" && prCapitalised == "Rock") {
                 result = "The computer picked scissors and the player picked rock. The player wins!"
             }
             
