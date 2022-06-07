@@ -1,23 +1,63 @@
 <!DOCTYPE html>
 <html>
     <script>
-        //These are the variables which will hold the player's choice and the computer's choice//
-        let computerChoice = "Rock";
-        let playerChoice = "Rock";
 
+
+        //This function will play a round of Rock Paper Scissors//
+        function playRound(playerSelection, computerSelection) {
+            //This variable takes playerSelection and makes it so that regardless of capitalisation the user inputs, the end result will always have the first letter capitalised and the rest of the characters lowercase//
+            let pSelectionFixed = 
+            //This variable will tell whether or not the player or the computer won the game//
+            let result = "";
+
+            //This series of if-statements gives the results if the computer chooses "Rock"//
+            if  (computerSelection == "Rock" && playerSelection == "Rock") {
+                result = "Both picked rock, it's a tie!";
+            }
+            else if (computerSelection == "Rock" && playerSelection == "Paper") {
+                result = "The computer chose rock and the player chose paper. The player wins!";
+            }
+            else if (computerSelection == "Rock" && playerSelection == "Scissors") {
+                result = "The computer chose rock and the player chose scissors. The computer wins!";
+            }
+
+            //This series of if-statements gives the results if the computer picks "Paper"//
+            if (computerSelection == "Paper" && playerSelection == "Paper") {
+                result = "Both picked paper, it's a tie!";
+            }
+            else if (computerSelection == "Paper" && playerSelection == "Rock") {
+                result = "The computer picked paper and the player picked rock. The computer wins!";
+            }
+            else if (computerSelection == "Paper" && playerSelection == "Scissors") {
+                result = "The computer picked paper and the player picked scissors. The player wins!";
+            }
+
+            //This series of if-statements gives the results if the computer picks "Scissors"//
+            if (computerSelection == "Scissors" && playerSelection == "Scissors") {
+                result = "Both picked scissors. It's a tie!";
+            }
+            else if (computerSelection == "Scissors" && playerSelection == "Rock") {
+                result = "The computer picked scissors and the player picked rock. The player wins!"
+            }
+            
+            return result;
+        } 
+        
         //This function is going to make the computer choose between either "Rock," "Paper," or "Scissors"//
         function computerPlay() {
+            let decision = "Rock"
             let choice = Math.floor(Math.random() * 3);
             switch(choice) {
                 case 0:
-                    computerChoice = "Rock";
+                    decision = "Rock";
                     break;
                 case 1:
-                    computerChoice = "Paper";
+                    decision = "Paper";
                     break;
                 case 2: 
-                    computerChoice = "Scissors";
+                    decision = "Scissors";
             }
+            return decision;
         }
     </script>
 </html>
