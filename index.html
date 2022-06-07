@@ -5,14 +5,22 @@
         function game() {
             //This will display a prompt for the user to enter their choice of rock, paper or scissors//
             let promptAnswer = prompt("To play a game of Rock Paper Scissors, please enter either rock, paper, or scissors in the text box below");
-            console.log(promptAnswer);
             //These variables keep track of wins, losses, and ties//
             let wins = 0;
             let losses = 0;
             let ties = 0;
             for (let i = 0; i < 5; i++) {
-                let playGame = playRound(promptAnswer, computerPlay);
-                console.log(playGame);
+                let playGame = playRound(promptAnswer, computerPlay());
+                switch(playGame) {
+                    case 0:
+                        ties += 1;
+                        break;
+                    case 1:
+                        wins += 1;
+                        break;
+                    case 2:
+                        losses += 1;
+                }
                 
             }
             return "You got " + wins + " wins, " + losses + " losses, and " + ties + " ties.";
@@ -25,8 +33,8 @@
             let prCapitalised = prLowerCase.charAt(0).toUpperCase() + prLowerCase.slice(1);
 
             //These variable will tell whether or not the player or the computer won the game. For 'result', "0" means that the game ended in a tie, "1" means that the player won, and "2" means the computer won.//
-            let resultLog;
-            let result;
+            let resultLog = "";
+            let result = "";
             //This series of if-statements gives the results if the computer chooses "Rock"//
             if  (computerSelection == "Rock" && prCapitalised == "Rock") {
                 resultLog = "Both picked rock, it's a tie!";
@@ -40,8 +48,9 @@
                 resultLog = "The computer chose rock and the player chose scissors. The computer wins!";
                 result = 2;
             }
+            
             //This series of if-statements gives the results if the computer picks "Paper"//
-            else if (computerSelection == "Paper" && prCapitalised == "Paper") {
+            if (computerSelection == "Paper" && prCapitalised == "Paper") {
                 resultLog = "Both picked paper, it's a tie!";
                 result = 0;
             }
@@ -53,8 +62,9 @@
                 resultLog = "The computer picked paper and the player picked scissors. The player wins!";
                 result = 1;
             }
+            
             //This series of if-statements gives the results if the computer picks "Scissors"//
-            else if (computerSelection == "Scissors" && prCapitalised == "Scissors") {
+            if (computerSelection == "Scissors" && prCapitalised == "Scissors") {
                 resultLog = "Both picked scissors. It's a tie!";
                 result = 0;
             }
